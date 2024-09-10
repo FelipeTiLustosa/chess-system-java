@@ -6,7 +6,7 @@ import boardgame.Position;
 import chess.pieces.King;
 import chess.pieces.Rook;
 
-public class ChessMatch {
+public class ChessMatch {// Implementing possible moves of Rook
     private Board board;
 
     public ChessMatch() {
@@ -24,6 +24,12 @@ public class ChessMatch {
         return mat;
     }
 
+    public boolean[][] possibleMoves(ChessPosition sourcePosition) {
+        Position position = sourcePosition.toPosition();
+        validateSourcePosition(position);
+        return board.piece(position).possibleMoves();
+    }
+
     public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
         Position source = sourcePosition.toPosition();
         Position target = targetPosition.toPosition();
@@ -37,8 +43,7 @@ public class ChessMatch {
         Piece p = board.remmovePiece(source);
         Piece capturedPiece = board.remmovePiece(target);
         board.placePiece(p, target);
-        return capturedPiece;
-    }
+        return capturedPiece; }
 
     private void validateSourcePosition(Position position) {
         if (!board.thereIsAPiece(position)) {
