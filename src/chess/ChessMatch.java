@@ -6,7 +6,7 @@ import boardgame.Position;
 import chess.pieces.King;
 import chess.pieces.Rook;
 
-public class ChessMatch {// Implementing possible moves of Rook
+public class ChessMatch {//partida de xadrez // Implementing possible moves of Rook
     private Board board;
 
     public ChessMatch() {
