@@ -40,7 +40,7 @@ OBS: Diagrama de classe # representa q o metado e protected e o Sublinhado embai
         return new Position(8- row, column - 'a');
     }
 protected  static ChessPosition fromPosition(Position position){
-        return  new ChessPosition((char) ('a' - position.getColumn()),8 - position.getRow());
+        return  new ChessPosition((char) ('a' + position.getColumn()),8 - position.getRow());
 }
 @Override
     public String toString() {
