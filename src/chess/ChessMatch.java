@@ -84,7 +84,8 @@ public class ChessMatch {//partida de xadrez // Implementing possible moves of R
     }
 
     private Piece makeMove(Position source, Position target) {
-        Piece p = board.remmovePiece(source);
+        ChessPiece p = (ChessPiece) board.remmovePiece(source);
+        p.increaseMoveCount();
         Piece capturedPiece = board.remmovePiece(target);
         board.placePiece(p, target);
 
@@ -108,7 +109,8 @@ public class ChessMatch {//partida de xadrez // Implementing possible moves of R
     }
 
     private void undoMove(Position source, Position target, Piece capturedPiece) {
-        Piece p = board.remmovePiece(target);
+        ChessPiece p = (ChessPiece) board.remmovePiece(target);
+        p.decreaseMoveCount();
         board.placePiece(p, source);
 
         if (capturedPiece != null) {
