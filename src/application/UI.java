@@ -57,14 +57,14 @@ public class UI { // User Interface (Interface de Usuário)
         System.out.println();
         System.out.println("Turn: " + chessMatch.getTurn());
         if (!chessMatch.getCheckMate()) {
-            System.out.println("Check mate");
             System.out.println("Wainting player: " + chessMatch.getCurrentPlayer());
             if (chessMatch.getCheck()) {
                 System.out.println("CHECK!");
             }
         }
-        System.out.println("CHECKMATE!");
-        System.out.println("Winner: " + chessMatch.getCurrentPlayer());
+        else {System.out.println("CHECKMATE!");
+            System.out.println("Winner: " + chessMatch.getCurrentPlayer());
+        }
     }
     public static void printBoard(ChessPiece[][] pieces) {
         for (int i = 0; i < pieces.length; i++) {
